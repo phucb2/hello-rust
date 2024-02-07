@@ -1,0 +1,23 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+
+message Employee {
+  enum Role {
+    SOFTWARE_ENGINEER = 0;
+    PRODUCT_MANAGER = 1;
+    DESIGNER = 2;
+  }
+
+  string name = 1;
+  int32 id = 2;
+  Role role = 3;
+}
+
+message Company {
+  string name = 1;
+  repeated Employee employees = 2;
+}
+
+service CompanyService {
+  rpc GetCompanyInfo (google.protobuf.Empty) returns (Company);
+}
