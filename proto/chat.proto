@@ -1,0 +1,15 @@
+syntax = "proto3";
+package myapp;
+
+service Chat {
+    rpc Send(InviteRequest) returns (InviteReponse);
+}
+
+message InviteRequest {
+    string name = 1;
+}
+
+message InviteReponse {
+    string other = 1;
+    int32 context = 2;
+}
